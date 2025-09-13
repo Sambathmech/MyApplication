@@ -29,6 +29,7 @@ namespace MyApplication
                         sqlCon.connection(partName);
                         FeatureCheck featureCheck = new FeatureCheck();
                         featureCheck.checkFeat();
+                        featureCheck.TableCreation();
                         break;
                     case 2:
                         // Assembly

@@ -32,7 +32,7 @@ namespace MyApplication
 
         public void connection(string message)
         {
-            DBCon = new SQLiteConnection("Data Source=features.db;Version=3;");
+            DBCon = new SQLiteConnection($"Data Source={message}.db;Version=3;");
             DBCon.Open();
             MessageBox.Show("Database Connected");
         }

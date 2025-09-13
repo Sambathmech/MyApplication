@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SolidWorks.Interop.sldworks;
 using System.Diagnostics.Metrics;
+using System.Diagnostics;
 
 namespace MyApplication
 {
@@ -51,10 +52,14 @@ namespace MyApplication
             ModelDoc2 Model = (ModelDoc2)swApp.ActiveDoc;
             PartDoc part = (PartDoc)Model;
             Feature feature = (Feature)part.FeatureByName(message);
+            sketchExtractor sk = new sketchExtractor();
+            sk.extractor(message);
          //get the feature in part 
             MessageBox.Show(feature.Name);
             ExtrudeFeatureData2 feat = (ExtrudeFeatureData2)feature.GetDefinition();
+
            
+
             //Get the feture values
             flip = feat.FlipSideToCut;
             dir = feat.BothDirections;
@@ -82,43 +87,32 @@ namespace MyApplication
 
 
 
-            string insertValue = $"INSERT INTO Extrude(sd , flip , dir,T1,T2,Depth1,Depth2,Draft1, Draft2,DraftDir1,DraftDir2,DraftAng1," +
+            string insertValue = $"INSERT INTO Extrude(FeatureName , sd , flip , dir,T1,T2,Depth1,Depth2,Draft1, Draft2,DraftDir1,DraftDir2,DraftAng1," +
                 $"DraftAng2,offrev1,offrev2,TransSur1,TransSur2, Merge,useFeatScope,useAutoSelect,Tcon,startoffset,flipOffset) " +
-                $"VALUES({sd},{flip},{dir},{T1},{T2},{Depth1},{Depth2},{draftCheck1},{draftCheck2},{draftDir1},{draftDir2}," +
+                $"VALUES('{message}',{sd},{flip},{dir},{T1},{T2},{Depth1},{Depth2},{draftCheck1},{draftCheck2},{draftDir1},{draftDir2}," +
                 $"{draftangle1},{draftangle2},{offsetrev1},{offsetrev2},{translatesurface1},{translatesurface2},{merge},{usefeatscope1}," +
                 $"{useautoselect1},{T0},{startoffset},{flipoffset})";
             MessageBox.Show(insertValue);
             myCon.insertvalue(insertValue);
 
-           
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         }
-        public void extrudeThin(string message)
+        
+    }
+    public class fillet
+    {
+        public SldWorks swApp = new SldWorks();
+       
+        public void Fillet(string message)
         {
             ModelDoc2 model = (ModelDoc2)swApp.ActiveDoc;
             PartDoc part = (PartDoc)model;
             Feature feature = (Feature)part.FeatureByName(message);
             MessageBox.Show(feature.Name);
 
-            ExtrudeFeatureData2Class extr = new ExtrudeFeatureData2Class();
-           ExtrudeFeatureData extrude = new ExtrudeFeatureData();
-            extrude.GetWallThickness(true);
-            extrude.GetWallThickness(false);
-
             
+
+
+
 
 
         }
