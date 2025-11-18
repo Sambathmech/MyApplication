@@ -14,9 +14,11 @@ namespace MyApplication
             bool isrunning;
             try
             {
+                // Whether Solidworks Application is Running or Not
                 if (Process.GetProcessesByName("Sldworks").Any())
                 {
                     MessageBox.Show("SolidWorks is running");
+                    //if the application is running and execute the code
                     DocChecker docChecker = new DocChecker();
                     docChecker.currentDocument();
 

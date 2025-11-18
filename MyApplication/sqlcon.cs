@@ -22,7 +22,7 @@ namespace MyApplication
             if(files.Length > 0)
             {
                 string db = files[0];
-                MessageBox.Show(db);
+                //MessageBox.Show(db);
               DBCon = new SQLiteConnection($"Data Source ={db}");
                 DBCon.Open();
             }
@@ -34,7 +34,7 @@ namespace MyApplication
         {
             DBCon = new SQLiteConnection($"Data Source={message}.db;Version=3;");
             DBCon.Open();
-            MessageBox.Show("Database Connected");
+            //MessageBox.Show("Database Connected");
         }
 
 

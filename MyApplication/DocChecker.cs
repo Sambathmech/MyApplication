@@ -9,10 +9,12 @@ namespace MyApplication
 {
     public class DocChecker
     {
+        // Create a SolidWorks application instance
         public SldWorks sldWorks = new SldWorks();
         
         public void currentDocument()
         {
+            // check the type of the current document
             ModelDoc2 Model = (ModelDoc2)sldWorks.ActiveDoc;
             if (Model != null)
             {
@@ -24,9 +26,12 @@ namespace MyApplication
                         Console.WriteLine("Current document is a Part.");
                         sqlcon sqlCon = new sqlcon();
                        string partName = Model.GetTitle();
-                        MessageBox.Show(partName);
+                        //MessageBox.Show(partName);
 
+
+                        // Connect to the database named after the part
                         sqlCon.connection(partName);
+                        //create the instance for FeatureCheck class
                         FeatureCheck featureCheck = new FeatureCheck();
                         featureCheck.checkFeat();
                         featureCheck.TableCreation();

@@ -55,7 +55,7 @@ namespace MyApplication
             sketchExtractor sk = new sketchExtractor();
             sk.extractor(message);
          //get the feature in part 
-            MessageBox.Show(feature.Name);
+            //MessageBox.Show(feature.Name);
             ExtrudeFeatureData2 feat = (ExtrudeFeatureData2)feature.GetDefinition();
 
            
@@ -92,7 +92,7 @@ namespace MyApplication
                 $"VALUES('{message}',{sd},{flip},{dir},{T1},{T2},{Depth1},{Depth2},{draftCheck1},{draftCheck2},{draftDir1},{draftDir2}," +
                 $"{draftangle1},{draftangle2},{offsetrev1},{offsetrev2},{translatesurface1},{translatesurface2},{merge},{usefeatscope1}," +
                 $"{useautoselect1},{T0},{startoffset},{flipoffset})";
-            MessageBox.Show(insertValue);
+            //MessageBox.Show(insertValue);
             myCon.insertvalue(insertValue);
 
         }

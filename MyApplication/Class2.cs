@@ -29,12 +29,12 @@ namespace MyApplication
                     {
                        
                         Sketch sketch = parentFeat.GetSpecificFeature2() as Sketch;
-                        MessageBox.Show(
-                                                $"Extrude '{feature.Name}' uses Sketch '{parentFeat.Name}'"
-                                            );
+                        //MessageBox.Show(
+                        //                        $"Extrude '{feature.Name}' uses Sketch '{parentFeat.Name}'"
+                        //                    );
 
                         
-                         int refType;
+                         //int refType;
                         // object refEnt = sketch.GetReferenceEntity(out );
                         // if (refEnt is Feature planeFeat)
                         //System.Diagnostics.Debug.WriteLine($"   Sketch plane: {planeFeat.Name}");

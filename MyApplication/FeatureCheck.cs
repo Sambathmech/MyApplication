@@ -43,9 +43,9 @@ namespace MyApplication
                     feat.GetTypeName2() !="RefPlane"&&
                     feat.GetTypeName2() !="OriginProfileFeature")
                 {
-                    MessageBox.Show(feat.GetTypeName2());
+                    //MessageBox.Show(feat.GetTypeName2());
                     string insertTable = $"INSERT INTO FeatureList(FeatureName) VALUES('{feat.GetTypeName2()}')";
-                    MessageBox.Show(insertTable);
+                    //MessageBox.Show(insertTable);
                     myCon.insertvalue(insertTable);
                 }
 
@@ -75,7 +75,7 @@ namespace MyApplication
                 $"T1 REAL, T2 REAL, Depth1 DOUBLE , Depth2 DOUBLE , Draft1 DOUBLE , Draft2 DOUBLE , DraftDir1 BOOL , DraftDir2 BOOL," +
                 $"DraftAng1 DOUBLE , DraftAng2 DOUBLE, offrev1 BOOL , offrev2 BOOL , TransSur1 BOOL, TransSur2 BOOL , Merge BOOL," +
                 $"useFeatScope BOOL , useAutoSelect BOOL, Tcon REAL , startoffset DOUBLE , flipOffset BOOL)";
-                    MessageBox.Show(createTable);
+                    //MessageBox.Show(createTable);
                     myCon.createTable(createTable);
 
 
@@ -85,7 +85,7 @@ namespace MyApplication
                 }
                 else if (feat.GetTypeName2() == "Fillet")
                 {
-                    MessageBox.Show("Imported feature found.");
+                    //MessageBox.Show("Imported feature found.");
                 }
                 feat = (Feature)feat.GetNextFeature();
 
